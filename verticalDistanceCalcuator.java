@@ -20,8 +20,8 @@ public class verticalDistanceCalcuator {
         System.out.print("What is the acceleration due to gravity? (m/s^2) ");
         double g = keyboard.nextDouble();
         double yf = 1/2.0f * g * t * t + vi * t + yi;
-        System.out.printf("The max height is %4.2f", yf);
-        System.out.printf(" 0G: %.2f\n t: %.2f\nyi: %.2f\nvi: %.2f\n", g+t, t, yi, vi);
+        System.out.printf("The max height is %4.2f\n", yf);
+        System.out.printf(" 0G: %.2f\n t: %.2f\nyi: %.2f\nvi: %.2f\n", g, t, yi, vi);
 
      }
 }
