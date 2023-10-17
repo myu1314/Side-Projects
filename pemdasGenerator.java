@@ -11,25 +11,26 @@ import java.util.Random;
 public class pemdasGenerator {
 
     public static void main(String[] args) throws Exception {
-        Random rand = new Random();
-        int sign = rand.nextInt(3) + 1; // (1 = "+", 2 = "-", 3 = "*", 4 = "/")
-        double num1 = rand.nextInt(100);
-        double num2 = rand.nextInt(100) ;
+        Random rand = new Random(System.currentTimeMillis());
+        int sign = rand.nextInt(4); // (0 = "+", 1 = "-", 2 = "*", 3 = "/")
+        double num1 = rand.nextInt(101);
+        double num2 = rand.nextInt(101) ;
         double solution = 0;
         //Determing Operation and Solution
-        if (sign == 1 ){
+        System.out.println("The Sign Number is " + sign);
+        if (sign == 0 ){
             System.out.printf("What is %2.0f + %2.0f?\n", num1, num2);
             solution = num1 + num2;
         }
-        else if(sign == 2){
+        else if(sign == 1){
             System.out.printf("What is %2.0f - %2.0f?\n", num1, num2);
             solution = num1 - num2;
         }
-        else if(sign == 3){
+        else if(sign == 2){
             System.out.printf("What is %2.0f * %2.0f? \n", num1, num2);
             solution = num1 * num2;
         }
-        else if(sign == 4){
+        else{
             System.out.printf("What is %2.0f / %2.0f?\n", num1, num2);
             solution =  (double) num1/  (double) num2  ;
         }
