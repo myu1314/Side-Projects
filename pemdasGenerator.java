@@ -17,7 +17,7 @@ public class pemdasGenerator {
         double num2 = rand.nextInt(100) ;
         double solution = 0;
         //Determing Operation and Solution
-        if (sign == 1){
+        if (sign == 1 ){
             System.out.printf("What is %2.0f + %2.0f?\n", num1, num2);
             solution = num1 + num2;
         }
