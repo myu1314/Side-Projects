@@ -1,5 +1,8 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+
+        Or firstGateOr= new Or();
+
+        System.out.println(firstGateOr.getInA);
     }
 }
