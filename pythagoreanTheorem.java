@@ -17,6 +17,7 @@ public class pythagoreanTheorem {
         double b = keyboard.nextDouble();
         double c = Math.sqrt(a*a + b*b);
         System.out.print("The length of the hypontuse = " + c + ".");
+        keyboard.close();
      }
 }
 /*

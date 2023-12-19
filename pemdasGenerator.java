@@ -8,7 +8,7 @@
 
 import java.util.Random;
 
-public class pemdasGenerator {
+public class PemdasGenerator {
 
     public static void main(String[] args) throws Exception {
         Random rand = new Random(System.currentTimeMillis());
