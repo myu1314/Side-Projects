@@ -33,10 +33,10 @@ public class AsteroidPanel extends JPanel implements KeyListener {
         int keyCode = e.getKeyCode();
         switch (keyCode) {
             case KeyEvent.VK_A:
-                ship.move(-5, 0);
+                ship.rotateLeft(3);
                 break;
             case KeyEvent.VK_D:
-                ship.move(5, 0);
+                ship.rotateRight(3);
                 break;
             case KeyEvent.VK_W:
                 ship.move(0, -5);
