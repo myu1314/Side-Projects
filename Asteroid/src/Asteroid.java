@@ -20,7 +20,7 @@ public class Asteroid extends JPanel {
     public void drawShip(Graphics g){
         int centerX = getWidth() / 2;
         int centerY = getHeight() / 2;
-        int radius = 30;
+        int radius = 30         ;
         g.setColor(Color.white);
         g.fillOval(centerX - radius, centerY - radius, 1 * radius, 1 * radius);
     }
