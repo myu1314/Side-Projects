@@ -1,10 +1,10 @@
 import java.awt.*;
 
-public class Ship {
+public class ship {
     private int x;
     private int y;
 
-    public Ship(int x, int y) {
+    public ship(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -16,6 +16,6 @@ public class Ship {
 
     public void draw(Graphics g) {
         g.setColor(Color.WHITE);
-        g.fillRect(x, y, 20, 20);
+        g.fillRect(x, y, 10, 10);
     }
 }

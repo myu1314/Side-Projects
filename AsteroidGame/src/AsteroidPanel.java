@@ -3,12 +3,12 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class AsteroidPanel extends JPanel implements KeyListener {
-    private Ship ship;
+    private ship ship;
 
     public AsteroidPanel() {
         setPreferredSize(new Dimension(500, 500));
         setBackground(Color.BLACK);
-        ship = new Ship(250, 250);
+        ship = new ship(250, 250);
         setFocusable(true);
         addKeyListener(this);
     }
