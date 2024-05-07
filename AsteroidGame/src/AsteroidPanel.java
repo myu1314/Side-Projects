@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class AsteroidPanel extends JPanel implements KeyListener {
+public class AsteroidPanel extends JPanel implements KeyListener { // This is your view and controller, they can be seperated.
     private ship ship;
 
     public AsteroidPanel() {
@@ -13,6 +13,7 @@ public class AsteroidPanel extends JPanel implements KeyListener {
         addKeyListener(this);
     }
 
+    // view
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -28,6 +29,8 @@ public class AsteroidPanel extends JPanel implements KeyListener {
         ship.draw(g);
     }
 
+
+    // controller
     @Override
     public void keyPressed(KeyEvent e) {
         int keyCode = e.getKeyCode();
