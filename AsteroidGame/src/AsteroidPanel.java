@@ -6,7 +6,7 @@ public class AsteroidPanel extends JPanel implements KeyListener { // This is yo
     private ship ship;
 
     public AsteroidPanel() {
-        setPreferredSize(new Dimension(500, 500));
+        setPreferredSize(new Dimension(500, 500));   b              
         setBackground(Color.BLACK);
         ship = new ship(250, 250);
         setFocusable(true);
@@ -36,17 +36,17 @@ public class AsteroidPanel extends JPanel implements KeyListener { // This is yo
         int keyCode = e.getKeyCode();
         switch (keyCode) {
             case KeyEvent.VK_A:
-                ship.rotateLeft(3);
+                ship.rotateLeft();
                 break;
             case KeyEvent.VK_D:
-                ship.rotateRight(3);
+                ship.rotateRight();
                 break;
             case KeyEvent.VK_W:
-                ship.move(0, -5);
+                ship.move();
                 break;
-            case KeyEvent.VK_S:
-                ship.move(0, 5);
-                break;
+            // case KeyEvent.VK_S:
+            //     ship.move();
+            //     break;
         }
         repaint();
     }
