@@ -6,7 +6,7 @@ public class AsteroidPanel extends JPanel implements KeyListener { // This is yo
     private ship ship;
 
     public AsteroidPanel() {
-        setPreferredSize(new Dimension(500, 500));   b              
+        setPreferredSize(new Dimension(500, 500));                
         setBackground(Color.BLACK);
         ship = new ship(250, 250);
         setFocusable(true);
