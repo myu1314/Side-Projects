@@ -9,7 +9,7 @@ public class AsteroidPanel extends JPanel implements KeyListener { // This is yo
     public AsteroidPanel() {
         setPreferredSize(new Dimension(500, 500));                
         setBackground(Color.BLACK);
-        ship = new ship(250, 250);
+        ship = new ship();
         setFocusable(true);
         addKeyListener(this);
     }
@@ -55,7 +55,7 @@ public class AsteroidPanel extends JPanel implements KeyListener { // This is yo
                 ship.rotateRight();
                 break;
             case KeyEvent.VK_W:
-                ship.move();
+                //ship.move();
                 break;
             // case KeyEvent.VK_S:
             //     ship.move();
