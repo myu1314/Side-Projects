@@ -1,24 +1,28 @@
 import java.awt.*;
-import java.Graphics2D;
-import java.Graphics;
+
 
 public class ship {
-    private int x;
-    private int y;
+    private int x = 250;
+    private int y = 250;
     private int dx; //delta x
     private int dy;
-    private int angle;
+    private double angle = 0;
+    private int frontX = (Math.cos(angle) * 5); 
+    private int frontY = y + Math.sin(angle) * 5;
+    private int backRX = 0;
+    private int backRY = 0;
+    private int backLX = 0;
+    private int backLY = 0;
+    private int centerX = 0;
+    private int centerY = 0;
 
     public ship(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public void rotateLeft(Graphics g) {
-        if(rotation < 360){
-            rotation += 5;
-        }
-        repaint();
+    public void rotateLeft() {
+        angle += 1;
     }
     public void rotateRight() {
         angle -= 1;
@@ -37,6 +41,14 @@ public class ship {
 
     public void draw(Graphics g) {
         g.setColor(Color.WHITE);
-        g.fillRect(x, y, 10, 10);
+        g.drawLine(frontX,frontY,backLX,backLY);
+        g.drawLine(frontX,frontY,backRX,backRY);
+        g.drawLine(backLX,backLY,centerX,centerY);
+        g.drawLine(centerX,centerY,backRX,backRY);
+        // g.drawLine(250,250,245,265);
+        // g.drawLine(250,250,255,265);
+        // g.drawLine(245,265,250,262);
+        // g.drawLine(250,262,255,265);
+
     }
 }

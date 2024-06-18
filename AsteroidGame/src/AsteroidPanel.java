@@ -4,7 +4,8 @@ import java.awt.event.*;
 
 public class AsteroidPanel extends JPanel implements KeyListener { // This is your view and controller, they can be seperated.
     private ship ship;
-
+    public int screenHeight;
+    public int screenWidth;
     public AsteroidPanel() {
         setPreferredSize(new Dimension(500, 500));                
         setBackground(Color.BLACK);
@@ -24,10 +25,22 @@ public class AsteroidPanel extends JPanel implements KeyListener { // This is yo
         int textHeight = fm.getHeight();
         int centerX = (getWidth() - textWidth) / 2;
         int centerY = (getHeight() - textHeight + 300) / 2 + fm.getAscent();
+        
+        screenHeight = getHeight();
+        screenWidth = getWidth();
+
         g.setColor(Color.WHITE);
         g.drawString("Atari ©", centerX, centerY);
         ship.draw(g);
     }
+    public int returnHeight(){
+        return screenHeight;
+    }
+    public int returnWidth(){
+        return screenWidth;
+    }
+    
+
 
 
     // controller
