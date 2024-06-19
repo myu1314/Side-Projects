@@ -50,9 +50,11 @@ public class AsteroidPanel extends JPanel implements KeyListener { // This is yo
         switch (keyCode) {
             case KeyEvent.VK_A:
                 ship.rotateLeft();
+                repaint();
                 break;
             case KeyEvent.VK_D:
                 ship.rotateRight();
+                repaint();
                 break;
             case KeyEvent.VK_W:
                 //ship.move();
