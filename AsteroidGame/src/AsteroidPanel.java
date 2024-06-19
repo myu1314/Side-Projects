@@ -3,13 +3,13 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class AsteroidPanel extends JPanel implements KeyListener { // This is your view and controller, they can be seperated.
-    private ship ship;
+    public Ship ship;
     public int screenHeight;
     public int screenWidth;
-    public AsteroidPanel() {
+    public AsteroidPanel(Ship ship) {
         setPreferredSize(new Dimension(500, 500));                
         setBackground(Color.BLACK);
-        ship = new ship();
+        this.ship = ship;
         setFocusable(true);
         addKeyListener(this);
     }
@@ -32,6 +32,7 @@ public class AsteroidPanel extends JPanel implements KeyListener { // This is yo
         g.setColor(Color.WHITE);
         g.drawString("Atari ©", centerX, centerY);
         ship.draw(g);
+        
     }
     public int returnHeight(){
         return screenHeight;
@@ -50,20 +51,21 @@ public class AsteroidPanel extends JPanel implements KeyListener { // This is yo
         switch (keyCode) {
             case KeyEvent.VK_A:
                 ship.rotateLeft();
-                repaint();
+                
                 break;
             case KeyEvent.VK_D:
                 ship.rotateRight();
-                repaint();
+                
                 break;
             case KeyEvent.VK_W:
                 ship.accelerateForward();
+                
                 break;
             // case KeyEvent.VK_S:
             //     ship.move();
             //     break;
         }
-        repaint();
+        
     }
 
     @Override
@@ -74,5 +76,9 @@ public class AsteroidPanel extends JPanel implements KeyListener { // This is yo
     @Override
     public void keyReleased(KeyEvent e) {
         // Unused method
+    }
+
+    public void panelPaint(){
+        repaint();
     }
 }

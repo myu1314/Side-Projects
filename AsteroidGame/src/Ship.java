@@ -1,7 +1,7 @@
 import java.awt.*;
 
 
-public class ship {
+public class Ship {
     private int x = 0;
     private int y = 0;
     private double angle = 0;
@@ -32,11 +32,13 @@ public class ship {
 
     }
 
+    public void update()
+    {
+        this.move();
+        this.setVerticies();
+    }
 
-
-
-
-    public void draw(Graphics g) {
+    public void setVerticies(){
         frontX = (int)((x * Math.cos(angle)) - ((y-8) * Math.sin(angle))) + 250 ;
         frontY = (int)((x * Math.sin(angle)) + ((y-8) * Math.cos(angle))) + 250;
         backRX = (int)(((x+5) * Math.cos(angle)) - ((y+8) * Math.sin(angle))) + 250;
@@ -45,6 +47,12 @@ public class ship {
         backLY = (int)(((x-5) * Math.sin(angle)) + (y+8) * Math.cos(angle)) + 250;
         centerX = (int)((x * Math.cos(angle)) - (y+5) * Math.sin(angle)) + 250;
         centerY = (int)((x * Math.sin(angle)) + (y+5) * Math.cos(angle)) + 250;
+    }
+
+
+
+    public void draw(Graphics g) {
+        
         System.out.println("Front: (" + frontX + "," + frontY + ")");
         System.out.println("Back Right: (" + backRX + "," + backRY + ")");
         System.out.println("Back Left: (" + backLX + "," + backLY + ")");
