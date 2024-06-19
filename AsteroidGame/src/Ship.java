@@ -1,6 +1,4 @@
 import java.awt.*;
-import java.Graphics2D;
-import java.Graphics;
 
 public class ship {
     private int x;
@@ -14,14 +12,11 @@ public class ship {
         this.y = y;
     }
 
-    public void rotateLeft(Graphics g) {
-        if(rotation < 360){
-            rotation += 5;
-        }
-        repaint();
+    public void rotateLeft() {
+        angle += 1;
     }
     public void rotateRight() {
-        angle -= 1;
+        x = x * Math.cos(1) - y * Math.sin(1);
 
     }
 
@@ -37,6 +32,8 @@ public class ship {
 
     public void draw(Graphics g) {
         g.setColor(Color.WHITE);
-        g.fillRect(x, y, 10, 10);
+        g.drawLine(x, y, x+10, y + 40);
+        g.drawLine(x, y, x-10, y + 40);
+        
     }
 }
