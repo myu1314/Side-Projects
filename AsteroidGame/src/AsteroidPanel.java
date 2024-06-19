@@ -57,7 +57,7 @@ public class AsteroidPanel extends JPanel implements KeyListener { // This is yo
                 repaint();
                 break;
             case KeyEvent.VK_W:
-                //ship.move();
+                ship.accelerateForward();
                 break;
             // case KeyEvent.VK_S:
             //     ship.move();
