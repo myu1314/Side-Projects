@@ -27,7 +27,7 @@ public class Ship {
     }
     public void move(){
         acceleration -= acceleration * 1/9;
-        System.out.println(acceleration * Math.cos(angle));
+        //System.out.println(acceleration * Math.cos(angle));
         x += (int)(acceleration * Math.sin(angle));
         y -= (int)(acceleration * Math.cos(angle));
 
@@ -51,15 +51,31 @@ public class Ship {
     public void setVerticies(){
         int centerOfTX = findCenterX();
         int centerOfTY = findCenterY();
-        System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
-        frontX = (int)(((frontX - centerOfTX) * Math.cos(angle)) - (((frontY - centerOfTY)-8) * Math.sin(angle))) + 250;
-        frontY = (int)(((frontX - centerOfTX) * Math.sin(angle)) + (((frontY - centerOfTY)-8) * Math.cos(angle))) + 250;
-        backRX = (int)(((backRX - centerOfTX+5) * Math.cos(angle)) - (((backRY - centerOfTY)+8) * Math.sin(angle))) + 250;
-        backRY = (int) (((backRX - centerOfTX+5) * Math.sin(angle)) + ((backRY - centerOfTY)+8) * Math.cos(angle)) + 250;
-        backLX = (int)(((backLX - centerOfTX-5) * Math.cos(angle)) - ((backLY - centerOfTY+8) * Math.sin(angle))) + 250;
-        backLY = (int)(((backLX - centerOfTX-5) * Math.sin(angle)) + ((backLY - centerOfTY+8)+8) * Math.cos(angle)) + 250;
-        centerX = (int)(((centerX - centerOfTX-5) * Math.cos(angle)) - (centerY- centerOfTY+5) * Math.sin(angle)) + 250;
-        centerY = (int)(((centerX- centerOfTX-5) * Math.sin(angle)) + (centerY- centerOfTY+5) * Math.cos(angle)) + 250;
+        frontX = (int)((x * Math.cos(angle)) - ((y-8) * Math.sin(angle))) + 250;
+        frontY = (int)((x * Math.sin(angle)) + ((y-8) * Math.cos(angle))) + 250;
+        backRX = (int)(((x+5) * Math.cos(angle)) - ((y+8) * Math.sin(angle))) + 250;
+        backRY = (int) (((x+5) * Math.sin(angle)) + ((y+8) * Math.cos(angle))) + 250;
+        backLX = (int)(((x-5) * Math.cos(angle)) - ((y+8) * Math.sin(angle))) + 250;
+        backLY = (int)(((x-5) * Math.sin(angle)) + (y+8) * Math.cos(angle)) + 250;
+        centerX = (int)((x * Math.cos(angle)) - (y+5) * Math.sin(angle)) + 250;
+        centerY = (int)((x * Math.sin(angle)) + (y+5) * Math.cos(angle)) + 250;
+        
+        // System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
+        // frontX = (int)(((x - centerOfTX) * Math.cos(angle)) - (((y - centerOfTY)-8) * Math.sin(angle))) + centerOfTX;
+        // frontY = (int)(((x- centerOfTX) * Math.sin(angle)) + (((y - centerOfTY)-8) * Math.cos(angle))) + centerOfTY;
+        // System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
+        // backRX = (int)(((x- centerOfTX+5) * Math.cos(angle)) - (((y - centerOfTY)+8) * Math.sin(angle))) + centerOfTX;
+        // backRY = (int) (((x - centerOfTX+5) * Math.sin(angle)) + ((y - centerOfTY)+8) * Math.cos(angle)) + centerOfTY;
+        // System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
+        // backLX = (int)(((x- centerOfTX-5) * Math.cos(angle)) - ((y- centerOfTY+8) * Math.sin(angle))) + centerOfTX;
+        // backLY = (int)(((x - centerOfTX-5) * Math.sin(angle)) + ((y - centerOfTY+8)) * Math.cos(angle)) + centerOfTY;
+        // System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
+        // centerX = (int)(((x - centerOfTX) * Math.cos(angle)) - (y - centerOfTY+5) * Math.sin(angle)) + centerOfTX;
+        // centerY = (int)(((x - centerOfTX) * Math.sin(angle)) + (y - centerOfTY+5) * Math.cos(angle)) + centerOfTY;
+        // System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
+        
+
+
         // frontX = (int)(((frontX - centerOfTX) * Math.cos(angle)) - (((frontY - centerOfTY)-8) * Math.sin(angle))) + 250;
         // frontY = (int)(((frontX - centerOfTX) * Math.sin(angle)) + (((frontY - centerOfTY)-8) * Math.cos(angle))) + 250;
         // backRX = (int)((((frontX - centerOfTX)+5) * Math.cos(angle)) - (((frontY - centerOfTY)+8) * Math.sin(angle))) + 250;
@@ -75,10 +91,7 @@ public class Ship {
 
     public void draw(Graphics g) {
         
-        System.out.println("Front: (" + frontX + "," + frontY + ")");
-        System.out.println("Back Right: (" + backRX + "," + backRY + ")");
-        System.out.println("Back Left: (" + backLX + "," + backLY + ")");
-        System.out.println("Center: (" + centerX + "," + centerY + ")");
+        
         
 
         Font font = new Font("Arial", Font.BOLD, 5);

@@ -10,9 +10,9 @@ public class AsteroidGame {
         frame.pack();
         frame.setVisible(true);
 
-        while (true) {
+      while (true) {
             ship.update();
             panel.panelPaint();
-        }
+       }
     }
 }
