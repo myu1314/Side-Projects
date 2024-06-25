@@ -5,22 +5,28 @@ public class Ship {
     private int x = 0;
     private int y = 0;
     private double angle = 0;
-    private int frontX = 0;
-    private int frontY = 0;
-    private int backRX = 0;
-    private int backRY = 0;
-    private int backLX = 0;
-    private int backLY = 0;
-    private int centerX = 0;
-    private int centerY = 0;
+    private int frontX = 250;
+    private int frontY = 242;
+    private int backRX = 255;
+    private int backRY = 258;
+    private int backLX = 245;
+    private int backLY = 258;
+    private int centerX = 250;
+    private int centerY = 255;
     private double acceleration = 0;
     public void rotateLeft() {
+        int centerOfTX = findCenterX();
+        int centerOfTY = findCenterY();
         angle += 10*Math.PI/180;
         System.out.println("angle: " + angle);
+        System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
     }
     public void rotateRight() {
+        int centerOfTX = findCenterX();
+        int centerOfTY = findCenterY();
         angle -= 10*Math.PI/180;
         System.out.println("angle: " + angle);
+        System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
     }
     public void accelerateForward(){
         acceleration = 1;
@@ -40,39 +46,48 @@ public class Ship {
         this.move();
     }
     public int findCenterX(){
-        int centerOfTX = (int)(frontX + backLX + backRX)/3;
+        int centerOfTX = (int)(frontX + backLX + backRX)/3 - 250;
         return centerOfTX;
     }
     public int findCenterY(){
-        int centerOfTY = (int)(frontY + backLY + backRY)/3;
+        int centerOfTY = (int)(frontY + backLY + backRY)/3 - 250;
         return centerOfTY;
     }
 
     public void setVerticies(){
         int centerOfTX = findCenterX();
         int centerOfTY = findCenterY();
-        frontX = (int)((x * Math.cos(angle)) - ((y-8) * Math.sin(angle))) + 250;
-        frontY = (int)((x * Math.sin(angle)) + ((y-8) * Math.cos(angle))) + 250;
-        backRX = (int)(((x+5) * Math.cos(angle)) - ((y+8) * Math.sin(angle))) + 250;
-        backRY = (int) (((x+5) * Math.sin(angle)) + ((y+8) * Math.cos(angle))) + 250;
-        backLX = (int)(((x-5) * Math.cos(angle)) - ((y+8) * Math.sin(angle))) + 250;
-        backLY = (int)(((x-5) * Math.sin(angle)) + (y+8) * Math.cos(angle)) + 250;
-        centerX = (int)((x * Math.cos(angle)) - (y+5) * Math.sin(angle)) + 250;
-        centerY = (int)((x * Math.sin(angle)) + (y+5) * Math.cos(angle)) + 250;
-        
+        // frontX = (int)((x * Math.cos(angle)) - ((y-8) * Math.sin(angle))) + 250;
+        // frontY = (int)((x * Math.sin(angle)) + ((y-8) * Math.cos(angle))) + 250;
+        // backRX = (int)(((x+5) * Math.cos(angle)) - ((y+8) * Math.sin(angle))) + 250;
+        // backRY = (int) (((x+5) * Math.sin(angle)) + ((y+8) * Math.cos(angle))) + 250;
+        // backLX = (int)(((x-5) * Math.cos(angle)) - ((y+8) * Math.sin(angle))) + 250;
+        // backLY = (int)(((x-5) * Math.sin(angle)) + (y+8) * Math.cos(angle)) + 250;
+        // centerX = (int)((x * Math.cos(angle)) - (y+5) * Math.sin(angle)) + 250;
+        // centerY = (int)((x * Math.sin(angle)) + (y+5) * Math.cos(angle)) + 250;
         // System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
-        // frontX = (int)(((x - centerOfTX) * Math.cos(angle)) - (((y - centerOfTY)-8) * Math.sin(angle))) + centerOfTX;
-        // frontY = (int)(((x- centerOfTX) * Math.sin(angle)) + (((y - centerOfTY)-8) * Math.cos(angle))) + centerOfTY;
-        // System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
-        // backRX = (int)(((x- centerOfTX+5) * Math.cos(angle)) - (((y - centerOfTY)+8) * Math.sin(angle))) + centerOfTX;
-        // backRY = (int) (((x - centerOfTX+5) * Math.sin(angle)) + ((y - centerOfTY)+8) * Math.cos(angle)) + centerOfTY;
-        // System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
-        // backLX = (int)(((x- centerOfTX-5) * Math.cos(angle)) - ((y- centerOfTY+8) * Math.sin(angle))) + centerOfTX;
-        // backLY = (int)(((x - centerOfTX-5) * Math.sin(angle)) + ((y - centerOfTY+8)) * Math.cos(angle)) + centerOfTY;
-        // System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
-        // centerX = (int)(((x - centerOfTX) * Math.cos(angle)) - (y - centerOfTY+5) * Math.sin(angle)) + centerOfTX;
-        // centerY = (int)(((x - centerOfTX) * Math.sin(angle)) + (y - centerOfTY+5) * Math.cos(angle)) + centerOfTY;
-        // System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
+
+        System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
+        frontX = (int)(((x - centerOfTX) * Math.cos(angle)) - (((y - centerOfTY)-8) * Math.sin(angle))) + centerOfTX + 250;
+        frontY = (int)(((x- centerOfTX) * Math.sin(angle)) + (((y - centerOfTY)-8) * Math.cos(angle))) + centerOfTY + 250;
+        System.out.println("Front: (" + frontX + "," + frontY + ")");
+
+        System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
+        backRX = (int)(((x- centerOfTX+5) * Math.cos(angle)) - (((y - centerOfTY)+8) * Math.sin(angle))) + centerOfTX + 250;
+        backRY = (int) (((x - centerOfTX+5) * Math.sin(angle)) + ((y - centerOfTY)+8) * Math.cos(angle)) + centerOfTY + 250;
+        System.out.println("Back Right: (" + backRX + "," + backRY + ")");
+
+        System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
+        backLX = (int)(((x- centerOfTX-5) * Math.cos(angle)) - ((y- centerOfTY+8) * Math.sin(angle))) + centerOfTX + 250;
+        backLY = (int)(((x - centerOfTX-5) * Math.sin(angle)) + ((y - centerOfTY+8)) * Math.cos(angle)) + centerOfTY + 250;
+        System.out.println("Back Left: (" + backLX + "," + backLY + ")");
+
+        System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
+        centerX = (int)(((x - centerOfTX) * Math.cos(angle)) - (y - centerOfTY+5) * Math.sin(angle)) + centerOfTX + 250;
+        centerY = (int)(((x - centerOfTX) * Math.sin(angle)) + (y - centerOfTY+5) * Math.cos(angle)) + centerOfTY + 250;
+        System.out.println("Center: (" + centerX + "," + centerY + ")");
+
+        System.out.println("Center point: (" + centerOfTX + "," + centerOfTY + ")");
         
 
 
@@ -91,9 +106,11 @@ public class Ship {
 
     public void draw(Graphics g) {
         
+        int centerOfTX = findCenterX();
+        int centerOfTY = findCenterY();
         
         
-
+        
         Font font = new Font("Arial", Font.BOLD, 5);
         g.setFont(font);
         // g.drawString("frontX", frontX, frontY);
@@ -106,35 +123,12 @@ public class Ship {
         g.drawLine(frontX,frontY,backLX,backLY);
         g.drawLine(backLX,backLY,centerX,centerY);
         g.drawLine(centerX,centerY,backRX,backRY);
+        
         // g.drawLine(250,255,245,270);
         // g.drawLine(250,255,255,270);
         // g.drawLine(245,270,250,267);
         // g.drawLine(250,267,255,270);
-    //     private int frontX = x;
-    // private int frontY = y+5;
-    // private int backRX = x + 5;
-    // private int backRY = y + 20;
-    // private int backLX = x - 5;
-    // private int backLY = y + 20;
-    // private int centerX = x;
-    // private int centerY = x+17;
-    // frontX = (int)((x * Math.cos(angle)) - (y * Math.sin(angle))) + 250 ;
-    //     frontY = (int)((x * Math.sin(angle)) + ((y+5) * Math.cos(angle))) + 250;
-    //     backRX = (int)(((x+5) * Math.cos(angle)) - ((y+20) * Math.sin(angle))) + 250;
-    //     backRY = (int) (((x+5) * Math.sin(angle)) + ((y+20) * Math.cos(angle))) + 250;
-    //     backLX = (int)(((x-5) * Math.cos(angle)) - ((y+20) * Math.sin(angle))) + 250;
-    //     backLY = (int)(((x-5) * Math.sin(angle)) + (y+20) * Math.cos(angle)) + 250;
-    //     centerX = (int)((x * Math.cos(angle)) - (y+17) * Math.sin(angle)) + 250;
-        // centerY = (int)((x * Math.sin(angle)) + (y+17) * Math.cos(angle)) + 250;
 
-        // frontX = (int)((x * Math.cos(angle)) - ((y-8) * Math.sin(angle))) + 250;
-        // frontY = (int)((x * Math.sin(angle)) + ((y-8) * Math.cos(angle))) + 250;
-        // backRX = (int)(((x+5) * Math.cos(angle)) - ((y+8) * Math.sin(angle))) + 250;
-        // backRY = (int) (((x+5) * Math.sin(angle)) + ((y+8) * Math.cos(angle))) + 250;
-        // backLX = (int)(((x-5) * Math.cos(angle)) - ((y+8) * Math.sin(angle))) + 250;
-        // backLY = (int)(((x-5) * Math.sin(angle)) + (y+8) * Math.cos(angle)) + 250;
-        // centerX = (int)((x * Math.cos(angle)) - (y+5) * Math.sin(angle)) + 250;
-        // centerY = (int)((x * Math.sin(angle)) + (y+5) * Math.cos(angle)) + 250;
 
     }
 }
